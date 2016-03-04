@@ -38,7 +38,7 @@ void setup() {
   EsploraTFT.setTextSize(2);
   // start the text at the top left of the screen
   // this text is going to remain static
-  EsploraTFT.text("Degrees in C :\n ", 0, 0);
+  EsploraTFT.text("Degrees in F :\n ", 0, 0);
 
   // set the text in the loop to size 5
   EsploraTFT.setTextSize(5);
@@ -48,9 +48,10 @@ void loop() {
 
   // read the temperature  in Celcius and store it in a String
   String temperature = String(Esplora.readTemperature(DEGREES_C));
+  float temperatureF = (DEGREES_C * 9.0 / 5.0) + 32.0;
 
   // convert the string to a char array
-  temperature.toCharArray(tempPrintout, 3);
+  temperatureF.toCharArray(tempPrintout, 3);
 
   // set the text color to white
   EsploraTFT.stroke(255, 255, 255);
